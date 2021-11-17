@@ -101,9 +101,9 @@ n & (n-1) == 0 或者 n & -n == n 就是 2 的幂次方
 - [x] 443 压缩字符串
 
 ```markdown
-用数组代替Hash表，0-127 为 所有英文字母、符号和数字
+用数组代替Hash表，0-127 为 所有英文字母、符号和数字 new int[128]
 
-英文字母组成的Hash表 0-26  char - 'A'
+英文字母组成的Hash表 0-26  char - 'A'  new int[26]
 
 双指针一般会和字符串一起考
 双指针一般会和链表考（快慢指针、pre、dummy）
@@ -178,39 +178,81 @@ PriorityQueue<int[]> queue = new PriorityQueue<int[]>(new Comparator<int[]>() {
 
 
 
-##### 动态规划 （复习整理）
+##### 动态规划（2）
 
-- [x] 53 最大子序和
-- [x] 22 括号生成
 - [x] 746 使用最小花费爬楼梯
-- [x] 70 爬楼梯 
+
 - [x] 509 斐波那契数
+
 - [x] 1137 第N个泰波那契数
-- [x] 5 最长回文子串
+
 - [x] 338 比特位计数
+
 - [x] 279 完全平方数
-- [x] 64 最小路径和
+
 - [x] 647 回文子串
+
 - [x] 152 乘积最大子数组
-- [x] 62 不同路径
+
+  
+
 - [x] 139 单词拆分
+
 - [x] 221 最大正方形
+
 - [x] 198 打家劫舍
+
 - [x] 309 最佳买卖股票时机含冷冻期
+
 - [x] 322 零钱兑换
+
 - [x] 121 买卖股票的最佳时机
+
 - [x] 122 买卖股票的最佳时机Ⅱ
+
 - [x] 221 最大正方形
+
 - [x] 300 最长递增子序列
+
 - [x] 718 最长重复子数组
+
 - [x] 120 三角形最小路径和
+
 - [x] 518 零钱兑换Ⅱ
+
 - [x] 213 打家劫舍Ⅱ
-- [x] 42 接雨水
+
 - [x] 673 最长递增子序列的个数
+
 - [x] 494 目标和
-- [x] 97 交错字符串
+
 - [x] 剑指 Offer 46 把数字翻译成字符串
+
+
+
+- [x] 5 最长回文子串（暴力、dp[i]\[j] 从i到j是否为回文）
+- [x] 22 括号生成（规则、dfs、bfs）
+- [x] 42 接雨水（leftMax+rightMax、双指针）
+- [x] 62 不同路径（dp[i]\[j]  = dp[i-1]\[j] + dp[i]\[j-1] ）
+- [x] 63 不同路径 Ⅱ（dp[i]\[j]  = dp[i-1]\[j] + dp[i]\[j-1] ）
+- [x] 64 最小路径和（path[i]\[j] = Math.min( path[i]\[j-1], path[i-1]\[j]) + grid[i]\[j]）
+- [x] 70 爬楼梯 （dfs、dp[i] = dp[i-1] + dp[i-2]）
+- [x] 91 解码方法（dp[i] += dp[i-2]）
+- [x] 97 交错字符串（dp[i]\[j]  = dp[i]\[j] || + (dp[i-1]\[j])  &&  s1.charAt(i-1) == s3.charAt(i+j-1) )）
+
+
+
+
+
+
+
+```markdown
+ DP 还是经常与二维数组结合
+ 
+ 有时候 dp[n][m]，有时候 dp[n+1][m+1]
+```
+
+
 
 
 
@@ -302,6 +344,7 @@ list.stream().mapToInt(Integer::valueOf).toArray()
 - [x] 32 最长有效括号
 - [x] 678 有效的括号字符串
 - [x] 622 设计循环队列
+- [x] 20 有效括号
 
 
 
@@ -347,30 +390,28 @@ swutch(ch){
 
 ##### 字符串（2）
 
-- [x] 415 字符串相加
-- [x] 557 反转字符串中的单词Ⅲ
-- [x] 剑指Offer 05 替换空格
-- [x] 165 比较版本号
-- [x] 647 回文子串
-- [x] 680 验证回文字符串Ⅱ
-- [x] 796 旋转字符串
-- [x] 844 比较退格的字符串
-- [x] 43 字符串相乘（数学）
-- [x] 20 有效括号（栈）
-- [x] 151 翻转字符串里的单词（双指针）
-- [x] 468 验证IP地址
-- [x] 459 重复子字符串
-- [x] 剑指 Offer 45 把数组排成最小的数
-- [x] 556 下一个更大元素Ⅲ
+- [x] 剑指 Offer 45 把数组排成最小的数（stram、快排）
 
+- [x] 剑指Offer 05 替换空格（简单题...）
 
+- [x] 844 比较退格的字符串（栈、sb）
 
 - [x] 3 无重复字符的最长子串 (滑动窗口+map、滑动窗口+数组hash)
 - [x] 5 最长回文子串（暴力、动态规划）
+- [x] 647 回文子串（暴力、动态规划）
+- [x] 680 验证回文字符串Ⅱ（dfs）
 - [x] 6 Z 字形变换（每行一个 SB、模拟找规律）
 - [x] 7 整数反转（左移+末尾、字符串反转+catch exception）
 - [x] 58 最后一个单词的长度（split、从后查找）
 - [x] 67 二进制求和（API、SB遍历进位）
+- [x] 151 翻转字符串里的单词（后序遍历+双指针、stram）
+- [x] 415 字符串相加（后序遍历）
+- [x] 165 比较版本号（分割+三元运算、分块计算）
+- [x] 468 验证IP地址（str.split("\\.", -1)）
+- [x] 459 重复子字符串（a+a包含a）
+- [x] 796 旋转字符串（a+a包含a，遍历判断）
+- [x] 556 下一个更大元素Ⅲ（查找交换）
+- [x] 557 反转字符串中的单词Ⅲ（SB反转、双指针反转）
 
 ```markdown
 字符串经常与双指针、滑动窗口结合
@@ -380,6 +421,20 @@ Integer.toBinaryString()
 Integer.parseInt(a, 2)
 new BigInteger(a, 2).toString(2)
 
+str.split("\\.", -1) 尽可能多的模式，比如 a,b,c,, 返回length为5
+
+str.subString(startIndex, endIndex) -> [startIndex, endIndex)
+str.subString(beginIndex) 
+
+Arrays.sort(chars, j, chars.length) 数组部分排序  也是左闭右开
+
+StringBuffer#deleteCharAt()
+
+str.replaceAll(" ", "20")
+
+IntSream.of(nums).mapToObj(String::valueOf).sorted((o1,o2) -> (o1+o2).compareTo(o2+o1)).collect(Collectors.joining());
+
+Arrays.sort(strs, (o1,o2) -> (o1+o2).compareTo(o2+o1))
 ```
 
 
@@ -422,7 +477,8 @@ new BigInteger(a, 2).toString(2)
 - [x] 剑指Offer 62 圆圈中最后剩下的数字
 - [x] 189 旋转数组
 - [x] 384 打乱数组
-- [x]  剑指 Offer 13 机器人的运动范围
+- [x] 剑指 Offer 13 机器人的运动范围
+- [x]  剑指 Offer 53 - Ⅱ 0~n-1中缺失的数字
 
 
 
@@ -493,6 +549,7 @@ new BigInteger(a, 2).toString(2)
 
 - [x] 103 二叉树的锯齿形层序遍历
 - [x] 113 路径总和Ⅱ
+- [x] 剑指 Offer 36 二叉搜索树与双向链表
 
 ```markdown
 二叉搜索树的中序遍历 => 从小到大
@@ -542,6 +599,7 @@ Arrays.copyOfRange(arr, start, end)  左闭右开
 - [x] 134 加油站
 - [x] 跳跃游戏
 - [x] 跳跃游戏Ⅱ
+- [ ] 53 最大子序和（暴力、贪心）
 
 
 
