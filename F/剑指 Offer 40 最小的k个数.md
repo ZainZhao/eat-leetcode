@@ -1,4 +1,4 @@
-# 剑指 Offer 40 最小的k个数
+## 剑指 Offer 40 最小的k个数
 
 ```markdown
 Label：堆
@@ -25,25 +25,19 @@ class Solution {
 
 ```java
 class Solution {
-    public int[] getLeastNumbers(int[] arr, int k) {
+public int[] smallestK(int[] arr, int k) {
         int[] vec = new int[k];
         if (k == 0) { // 排除 0 的情况
             return vec;
         }
-        PriorityQueue<Integer> queue = new PriorityQueue<Integer>(new Comparator<Integer>() {
-            public int compare(Integer num1, Integer num2) {
-                return num2 - num1;
-            }
-        });
-        for (int i = 0; i < k; ++i) {
+
+        // Comparator.reverseOrder() 建立小根堆
+        PriorityQueue<Integer> queue = new PriorityQueue<Integer>((a,b)->(a-b)); 
+        // 入堆
+        for (int i = 0; i < arr.length; ++i) {
             queue.offer(arr[i]);
-        }
-        for (int i = k; i < arr.length; ++i) {
-            if (queue.peek() > arr[i]) {
-                queue.poll();
-                queue.offer(arr[i]);
-            }
-        }
+        }  
+        // 出堆
         for (int i = 0; i < k; ++i) {
             vec[i] = queue.poll();
         }
